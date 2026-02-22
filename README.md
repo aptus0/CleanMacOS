@@ -68,6 +68,15 @@ Examples:
 - `v0.2.0` GitHub automation and templates
 - `v1.0.0` stable release
 
+## Repository Bootstrap (after creating GitHub repo)
+
+```bash
+git remote add origin git@github.com:<your-username>/<your-repo>.git
+git push -u origin main
+gh auth login
+./scripts/bootstrap_github_labels.sh
+```
+
 ## GitHub Setup
 
 See `docs/GITHUB_PUBLISH_GUIDE.md` for:
