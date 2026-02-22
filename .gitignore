@@ -9,6 +9,7 @@ xcuserdata/
 # Xcode build outputs
 build/
 DerivedData/
+dist/
 *.moved-aside
 *.pbxuser
 !default.pbxuser
