@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Xcode user data
+*.xcuserstate
+*.xcscmblueprint
+xcuserdata/
+
+# Xcode build outputs
+build/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+
+# SwiftPM
+.build/
+Packages/
+Package.resolved
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Optional local env
+.env
+.env.local
