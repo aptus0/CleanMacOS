@@ -1,9 +1,9 @@
 # CleanMacOS
 
-[![CI](https://img.shields.io/github/actions/workflow/status/USERNAME/REPO/ci.yml?branch=main&label=CI)](https://github.com/USERNAME/REPO/actions)
-[![Release](https://img.shields.io/github/v/tag/USERNAME/REPO?sort=semver)](https://github.com/USERNAME/REPO/releases)
-[![Issues](https://img.shields.io/github/issues/USERNAME/REPO)](https://github.com/USERNAME/REPO/issues)
-[![License](https://img.shields.io/github/license/USERNAME/REPO)](./LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/aptus0/CleanMacOS/ci.yml?branch=main&label=CI)](https://github.com/aptus0/CleanMacOS/actions)
+[![Release](https://img.shields.io/github/v/tag/aptus0/CleanMacOS?sort=semver)](https://github.com/aptus0/CleanMacOS/releases)
+[![Issues](https://img.shields.io/github/issues/aptus0/CleanMacOS)](https://github.com/aptus0/CleanMacOS/issues)
+[![License](https://img.shields.io/github/license/aptus0/CleanMacOS)](./LICENSE)
 
 Native macOS cleaner app built with SwiftUI.
 

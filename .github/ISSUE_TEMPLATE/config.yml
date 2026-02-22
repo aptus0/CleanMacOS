@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Security concerns
-    url: https://github.com/USERNAME/REPO/security/advisories/new
+    url: https://github.com/aptus0/CleanMacOS/security/advisories/new
     about: Please report security-sensitive issues privately.

@@ -18,9 +18,10 @@ git remote add origin https://github.com/<your-username>/<your-repo>.git
 git push -u origin main
 ```
 
-## 2. Update badge links
+## 2. Badge links
 
-Replace `USERNAME/REPO` in `README.md` with your real repository path.
+This repository already points badges to `aptus0/CleanMacOS`.  
+If you fork it, update badge paths in `README.md` to your fork path.
 
 ## 3. Enable branch protection (recommended)
 
