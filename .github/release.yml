@@ -1,0 +1,22 @@
+changelog:
+  categories:
+    - title: Features
+      labels:
+        - enhancement
+        - feature
+    - title: Fixes
+      labels:
+        - bug
+    - title: Documentation
+      labels:
+        - documentation
+    - title: CI/CD
+      labels:
+        - ci
+    - title: Maintenance
+      labels:
+        - chore
+        - task
+  exclude:
+    labels:
+      - skip-changelog
