@@ -2,7 +2,7 @@
 //  CleanMacOSApp.swift
 //  CleanMacOS
 //
-//  Created by Samet on 22.02.2026.
+//  Created by aptus0 on 22.02.2026.
 //
 
 import SwiftUI

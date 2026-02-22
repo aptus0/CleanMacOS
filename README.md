@@ -9,6 +9,8 @@ Native macOS cleaner app built with SwiftUI.
 
 `CleanMacOS` scans selected cleanup categories, shows a detailed preview, and permanently removes selected files with a terminal-style execution log.
 
+![CleanMacOS Preview](docs/assets/readme-preview.svg)
+
 ## Features
 
 - Safe-by-default category selection with optional advanced categories.
@@ -87,6 +89,11 @@ See `docs/GITHUB_PUBLISH_GUIDE.md` for:
 - commit strategy
 - labels/milestones bootstrapping
 - release/tag workflow
+
+## Licenses
+
+- Main project license: `LICENSE` (MIT)
+- Third-party license inventory: `THIRD_PARTY_LICENSES.md`
 
 ## Disclaimer
 

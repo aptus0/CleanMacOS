@@ -1,6 +1,26 @@
-MIT License
+# Third-Party Licenses
 
-Copyright (c) 2026 aptus0
+This project has no third-party runtime libraries linked into the macOS app binary.
+
+The app itself is built with Apple-provided SDKs/frameworks under Apple's developer terms.
+
+## Build and CI Dependencies
+
+The repository uses the following GitHub Actions in workflows:
+
+1. `actions/checkout`
+   - Repository: https://github.com/actions/checkout
+   - License: MIT
+2. `actions/github-script`
+   - Repository: https://github.com/actions/github-script
+   - License: MIT
+3. `softprops/action-gh-release`
+   - Repository: https://github.com/softprops/action-gh-release
+   - License: MIT
+
+## MIT License Text (for listed GitHub Actions)
+
+Copyright (c) respective contributors.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +39,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Notes
+
+- If you add new third-party packages, update this file.
+- Keep SPDX-compatible identifiers in future additions when possible.
