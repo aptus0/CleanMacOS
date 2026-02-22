@@ -33,7 +33,9 @@ In GitHub repository settings:
 
 ## 4. Bootstrap labels and milestones
 
-Requires GitHub CLI (`gh`) and authentication:
+Preferred: run GitHub Action `Bootstrap Project Metadata` from the Actions tab.
+
+Alternative with GitHub CLI (`gh`):
 
 ```bash
 gh auth login

@@ -1,0 +1,119 @@
+name: Bootstrap Project Metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/bootstrap-project.yml"
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  labels-and-milestones:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync labels and milestones
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            const labels = [
+              { name: "bug", color: "d73a4a", description: "Something is not working" },
+              { name: "enhancement", color: "a2eeef", description: "New feature or request" },
+              { name: "task", color: "cfd3d7", description: "Implementation or maintenance task" },
+              { name: "documentation", color: "0075ca", description: "Documentation improvements" },
+              { name: "ci", color: "5319e7", description: "CI/CD related work" },
+              { name: "good first issue", color: "7057ff", description: "Good for new contributors" },
+              { name: "help wanted", color: "008672", description: "Extra attention is needed" },
+              { name: "priority:high", color: "b60205", description: "High priority" },
+              { name: "priority:medium", color: "d93f0b", description: "Medium priority" },
+              { name: "priority:low", color: "fbca04", description: "Low priority" },
+              { name: "version:v0.1.0", color: "1d76db", description: "Planned for v0.1.0" },
+              { name: "version:v0.2.0", color: "1d76db", description: "Planned for v0.2.0" },
+              { name: "version:v1.0.0", color: "1d76db", description: "Planned for v1.0.0" },
+              { name: "version:v1.0.2", color: "1d76db", description: "Planned for v1.0.2" }
+            ];
+
+            const milestones = [
+              {
+                title: "v0.1.0",
+                description: "Initial public cleaner release",
+                due_on: "2026-03-15T00:00:00Z"
+              },
+              {
+                title: "v0.2.0",
+                description: "GitHub automation and quality iteration",
+                due_on: "2026-04-15T00:00:00Z"
+              },
+              {
+                title: "v1.0.0",
+                description: "Stable release",
+                due_on: "2026-06-01T00:00:00Z"
+              },
+              {
+                title: "v1.0.2",
+                description: "Public GitHub metadata and docs polish",
+                due_on: "2026-06-10T00:00:00Z"
+              }
+            ];
+
+            const existingLabels = await github.paginate(
+              github.rest.issues.listLabelsForRepo,
+              { owner, repo, per_page: 100 }
+            );
+            const labelMap = new Map(existingLabels.map((l) => [l.name, l]));
+
+            for (const label of labels) {
+              if (labelMap.has(label.name)) {
+                await github.rest.issues.updateLabel({
+                  owner,
+                  repo,
+                  name: label.name,
+                  color: label.color,
+                  description: label.description
+                });
+              } else {
+                await github.rest.issues.createLabel({
+                  owner,
+                  repo,
+                  name: label.name,
+                  color: label.color,
+                  description: label.description
+                });
+              }
+            }
+
+            const existingMilestones = await github.paginate(
+              github.rest.issues.listMilestones,
+              { owner, repo, state: "all", per_page: 100 }
+            );
+            const milestoneMap = new Map(existingMilestones.map((m) => [m.title, m]));
+
+            for (const milestone of milestones) {
+              if (milestoneMap.has(milestone.title)) {
+                const existing = milestoneMap.get(milestone.title);
+                await github.rest.issues.updateMilestone({
+                  owner,
+                  repo,
+                  milestone_number: existing.number,
+                  title: milestone.title,
+                  description: milestone.description,
+                  due_on: milestone.due_on,
+                  state: "open"
+                });
+              } else {
+                await github.rest.issues.createMilestone({
+                  owner,
+                  repo,
+                  title: milestone.title,
+                  description: milestone.description,
+                  due_on: milestone.due_on
+                });
+              }
+            }

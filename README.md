@@ -77,6 +77,8 @@ gh auth login
 ./scripts/bootstrap_github_labels.sh
 ```
 
+Or run the GitHub Action: `Bootstrap Project Metadata` to create labels and milestones automatically.
+
 ## GitHub Setup
 
 See `docs/GITHUB_PUBLISH_GUIDE.md` for:
