@@ -1,0 +1,35 @@
+name: Cleanup task
+description: Track scoped cleanup changes or maintenance work
+title: "[Task] "
+labels:
+  - task
+body:
+  - type: input
+    id: area
+    attributes:
+      label: Area
+      placeholder: UI / Engine / Docs / CI
+    validations:
+      required: true
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What is the expected outcome?
+    validations:
+      required: true
+  - type: textarea
+    id: checklist
+    attributes:
+      label: Checklist
+      placeholder: |
+        - [ ] Item 1
+        - [ ] Item 2
+        - [ ] Item 3
+    validations:
+      required: true
+  - type: input
+    id: target_version
+    attributes:
+      label: Target version
+      placeholder: v0.2.0
