@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: macos-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build (Release)
+        run: |
+          DERIVED_DATA="$RUNNER_TEMP/CleanMacOSDerivedData"
+          xcodebuild \
+            -project CleanMacOS.xcodeproj \
+            -scheme CleanMacOS \
+            -configuration Release \
+            -destination 'platform=macOS' \
+            -derivedDataPath "$DERIVED_DATA" \
+            clean build
+
+          APP_PATH="$DERIVED_DATA/Build/Products/Release/CleanMacOS.app"
+          if [ ! -d "$APP_PATH" ]; then
+            echo "App bundle not found: $APP_PATH"
+            exit 1
+          fi
+
+          ZIP_NAME="CleanMacOS-${GITHUB_REF_NAME}.zip"
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" "$ZIP_NAME"
+          echo "ZIP_NAME=$ZIP_NAME" >> "$GITHUB_ENV"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.ZIP_NAME }}
+          generate_release_notes: true
